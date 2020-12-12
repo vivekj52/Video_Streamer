@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+{#    {% load static %}#}
+{##}
+{#    <link rel="stylesheet" type="text/css" href="{% static 'streamer/style.css' %}">#}
+    <style>
+        header {display: block;}
+        body {background-color: powderblue;}
+        h1   {color: blue;}
+        p    {color: red;}
+    </style>
+</head>
+
 <body>
+
+<header>
+  <h1>VIDEO STREAMER</h1>
+</header>
 
 <div style="text-align:center">
 
@@ -10,7 +27,7 @@
     <button onclick="makeNormal()">Normal</button>
     <br><br>
     <video width="600" id="video" controls>
-      <source src="/stream" type="video/mp4">
+      <source src="video" type="video/mp4">
       Your browser does not support HTML video.
     </video>
 

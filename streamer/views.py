@@ -1,35 +1,9 @@
-# from django.http import HttpResponse
-# from django.http import StreamingHttpResponse
-# import time
-# import os
-#
-#
-# # Create your views here.
-# def index(request):
-#     # return HttpResponse("Hello, world. You're at the stream index.")
-#     file = open('/home/vivek/Videos/SANAM/Aap Ki Nazron Ne Samjha - Sanam.mp4', "rb")
-#     return StreamingHttpResponse(streaming_content=file, content_type='video/mp4')
-#
-#
-# def stream_response_generator():
-#     yield "<html><body>\n"
-#     for x in range(1,11):
-#         yield "<div>%s</div>\n" % x
-#         yield " " * 1024  # Encourage browser to render incrementally
-#         time.sleep(1)
-#         yield "</body></html>\n"
-#
-#
-# def read(chunksize=819200):
-#     with open('/home/vivek/Videos/SANAM/Aap Ki Nazron Ne Samjha - Sanam.mp4', "rb") as video_file:
-#         byte = video_file.read(chunksize)
-#         while byte:
-#             yield byte
-#             time.sleep(1)
 import os
 import re
+import glob
 import mimetypes
 from wsgiref.util import FileWrapper
+import json
 
 from django.http.response import StreamingHttpResponse
 from django.http import HttpResponse
@@ -98,3 +72,20 @@ def player(request):
     template = loader.get_template('streamer/player.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+
+def list_movies(request):
+
+    mp4 = glob.glob('/home/vivek/Videos/HINDI/**/*.mp4')
+    mkv = glob.glob('/home/vivek/Videos/HINDI/**/*.mkv')
+
+    movies = mp4 + mkv
+    response = []
+
+    for movie in movies:
+        pair = {'name': movie[movie.rfind('/')+1:movie.rfind('.')],
+                'path': movie}
+        response.append(pair)
+
+    return HttpResponse(json.dumps(response))
+
