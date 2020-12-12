@@ -19,4 +19,5 @@ from django.urls import include, path
 urlpatterns = [
     path('streamer/', include('streamer.urls')),
     path('admin/', admin.site.urls),
+    path('streamer/', include('django.contrib.auth.urls'))
 ]
