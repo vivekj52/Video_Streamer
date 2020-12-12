@@ -11,6 +11,7 @@ from django.template import loader
 
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
+local_path_of_videos = '/home/vivek/Videos/HINDI/'
 
 
 class RangeFileWrapper(object):
@@ -80,8 +81,8 @@ def player(request):
 
 def list_movies(request):
 
-    mp4 = glob.glob('/home/vivek/Videos/HINDI/**/*.mp4')
-    mkv = glob.glob('/home/vivek/Videos/HINDI/**/*.mkv')
+    mp4 = glob.glob(os.path.join(local_path_of_videos, '**/*.mp4'))
+    mkv = glob.glob(os.path.join(local_path_of_videos, '**/*.mkv'))
 
     movies = mp4 + mkv
     response = []
