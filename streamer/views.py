@@ -8,6 +8,7 @@ import json
 from django.http.response import StreamingHttpResponse
 from django.http import HttpResponse
 from django.template import loader
+from django.contrib.auth.decorators import login_required
 
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
@@ -73,6 +74,7 @@ def stream_video(request):
     return resp
 
 
+@login_required()
 def player(request):
     template = loader.get_template('streamer/player.html')
     context = {}

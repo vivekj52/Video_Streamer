@@ -130,5 +130,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # config/settings.py
+LOGIN_URL = '/streamer/login'
 LOGIN_REDIRECT_URL = '/streamer/play'
 LOGOUT_REDIRECT_URL = '/streamer/play'
