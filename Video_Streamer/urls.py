@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('streamer/', include('streamer.urls')),
     path('admin/', admin.site.urls),
     path('streamer/', include('django.contrib.auth.urls')),
-    path('streamer/login/', auth_views.LoginView.as_view()),
+
 ]
