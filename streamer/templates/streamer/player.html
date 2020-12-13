@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 {#    {% load static %}#}
 {##}
 {#    <link rel="stylesheet" type="text/css" href="{% static 'streamer/style.css' %}">#}
@@ -43,8 +44,8 @@
   </div>
   <div class="column middle" style="background-color:#bbb;">
 
-      <video width="400" id="video" controls>
-      <source src="video?path=setbyjs" type="video/mp4">
+      <video width="600" id="video" controls>
+      <source src="video?path=" type="video/mp4">
       Your browser does not support HTML video.
       </video>
 
@@ -83,6 +84,17 @@
 
     movies.forEach(function (movie) {
         let li = document.createElement('li');
+        li.onclick = function(){
+            let name = li.innerText;
+            let path = "";
+            for (let i = 0; i < movies.length; i++){
+                if (movies[i].name == name)
+                    path = movies[i].path;
+            }
+            let vid = document.getElementById("video");
+            console.log(path);
+            vid.src = "video?path="+path;
+        };
         ul.appendChild(li);
 
     li.innerHTML += movie.name;
