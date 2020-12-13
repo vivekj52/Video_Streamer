@@ -6,63 +6,88 @@
 {##}
 {#    <link rel="stylesheet" type="text/css" href="{% static 'streamer/style.css' %}">#}
     <style>
-        header {display: block;}
-        body {background-color: powderblue;}
-        h1   {color: blue;}
-        p    {color: red;}
+                * {
+          box-sizing: border-box;
+        }
+        .column {
+          float: left;
+          padding: 10px;
+            height: 100%;
+        }
+
+        .left, .right {
+          width: 25%;
+        }
+
+        .middle {
+          width: 50%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-  <h1>VIDEO STREAMER</h1>
+  <h1 align="center">VIDEO STREAMER</h1>
 </header>
 
-{% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
-{% endif %}
-{% endblock %}
+<div class="row">
+  <div id="myItemList" class="column left" style="background-color:#aaa;">
+  </div>
+  <div class="column middle" style="background-color:#bbb;">
 
-<div style="text-align:center">
-
-    <button onclick="playPause()">Play/Pause</button>
-    <button onclick="makeBig()">Big</button>
-    <button onclick="makeSmall()">Small</button>
-    <button onclick="makeNormal()">Normal</button>
-    <br><br>
-    <video width="600" id="video" controls>
+      <video width="400" id="video" controls>
       <source src="video?path=setbyjs" type="video/mp4">
       Your browser does not support HTML video.
-    </video>
+      </video>
+
+  </div>
+  <div class="column right" style="background-color:#ccc;">
+      {% block content %}
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!<br><br>
+        {{ user.email }}
+      <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+    {% endblock %}
+  </div>
+</div>
 
 </div>
 <script>
-var myVideo = document.getElementById("video");
 
-function playPause() {
-  if (myVideo.paused)
-    myVideo.play();
-  else
-    myVideo.pause();
-}
+    function httpGet(theUrl)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+        xmlHttp.send( null );
+        return xmlHttp.responseText;
+    }
 
-function makeBig() {
-    myVideo.width = 560;
-}
+    let movies = httpGet('movies');
+    movies = JSON.parse(movies);
+    console.log(movies);
+    let ul = document.createElement('ul');
 
-function makeSmall() {
-    myVideo.width = 320;
-}
+    document.getElementById('myItemList').appendChild(ul);
 
-function makeNormal() {
-    myVideo.width = 420;
-}
+    movies.forEach(function (movie) {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+
+    li.innerHTML += movie.name;
+    });
+
 </script>
 </body>
 </html>

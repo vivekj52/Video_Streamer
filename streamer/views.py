@@ -4,6 +4,7 @@ import glob
 import mimetypes
 from wsgiref.util import FileWrapper
 import json
+import logging
 
 from django.http.response import StreamingHttpResponse
 from django.http import HttpResponse
@@ -13,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
 local_path_of_videos = '/home/vivek/Videos/HINDI/'
+logger = logging.getLogger(__name__)
 
 
 class RangeFileWrapper(object):
