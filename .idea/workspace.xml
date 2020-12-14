@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07bebc06-cedb-4ffd-a3e4-918a282eb5b9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streamer/templates/streamer/player.html" beforeDir="false" afterPath="$PROJECT_DIR$/streamer/templates/streamer/player.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/streamer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/streamer/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/streamer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+            <state relative-caret-position="300">
+              <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -52,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/streamer/templates/streamer/player.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="136" column="18" lean-forward="true" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
+            <state relative-caret-position="624">
+              <caret line="79" column="16" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -122,6 +120,7 @@
       <find>logger</find>
       <find>items</find>
       <find>range_re</find>
+      <find>cen</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,8 +136,8 @@
         <option value="$PROJECT_DIR$/Video_Streamer/urls.py" />
         <option value="$PROJECT_DIR$/streamer/urls.py" />
         <option value="$PROJECT_DIR$/streamer/templates/registration/signup.html" />
-        <option value="$PROJECT_DIR$/streamer/views.py" />
         <option value="$PROJECT_DIR$/streamer/templates/streamer/player.html" />
+        <option value="$PROJECT_DIR$/streamer/views.py" />
       </list>
     </option>
   </component>
@@ -274,19 +273,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607623893902</updated>
-      <workItem from="1607623895714" duration="55633000" />
+      <workItem from="1607623895714" duration="56515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55633000" />
+    <option name="totallyTimeSpent" value="56515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18106061" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18106061" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -442,20 +441,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/streamer/views.py">
+    <entry file="file://$PROJECT_DIR$/streamer/templates/streamer/player.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="624">
+          <caret line="79" column="16" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/streamer/templates/streamer/player.html">
+    <entry file="file://$PROJECT_DIR$/streamer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="136" column="18" lean-forward="true" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
+        <state relative-caret-position="300">
+          <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

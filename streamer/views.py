@@ -15,7 +15,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 
-from django.views.decorators.clickjacking import xframe_options_exempt
+from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
@@ -60,7 +60,7 @@ class RangeFileWrapper(object):
             return data
 
 
-@xframe_options_exempt
+@xframe_options_sameorigin
 def stream_video(request):
     path = request.GET['path']
     if path is None or path == '':
