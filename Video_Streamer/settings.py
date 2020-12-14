@@ -13,16 +13,23 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from configparser import RawConfigParser
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+
+CONFIG_FILE = os.path.join(BASE_DIR, 'Video_Streamer/config.ini')
+config = RawConfigParser()
+config.read(CONFIG_FILE)
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q=3sgi^0&-=n(4yz=498$mboluuk!kzk%4m-9u8azlt$8f0kz4'
+SECRET_KEY = config.get('main', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.getboolean('main', 'DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -80,10 +87,10 @@ WSGI_APPLICATION = 'Video_Streamer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'video_streamer',
-        'USER': 'root',
-        'PASSWORD': 'cs123@MITM',
-        'HOST': 'localhost',
+        'NAME': config.get('database', 'NAME'),
+        'HOST': config.get('database', 'HOST'),
+        'USER': config.get('database', 'USER'),
+        'PASSWORD': config.get('database', 'PASSWORD'),
         'PORT': '3306',
     }
 }
