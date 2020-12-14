@@ -19,7 +19,7 @@ from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
-local_path_of_videos = '/home/vivek/Videos/HINDI/'
+local_path_of_videos = '/home/saloni/Videos/'
 logger = logging.getLogger(__name__)
 
 
@@ -64,7 +64,7 @@ class RangeFileWrapper(object):
 def stream_video(request):
     path = request.GET['path']
     if path is None or path == '':
-        path = '/home/vivek/Videos/SANAM/Aap Ki Nazron Ne Samjha - Sanam.mp4'
+        path = '/home/saloni/Videos/ReactNativeTutorial.mp4'
     range_header = request.META.get('HTTP_RANGE', '').strip()
     range_match = range_re.match(range_header)
     size = os.path.getsize(path)
