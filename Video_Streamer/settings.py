@@ -135,3 +135,6 @@ STATICFILES_DIRS = (os.path.join('static'),)
 LOGIN_URL = '/streamer/login'
 LOGIN_REDIRECT_URL = '/streamer/play'
 LOGOUT_REDIRECT_URL = '/streamer/play'
+
+PATH_OF_VIDEOS = config.get('media_location', 'videos_folder')
+DEFAULT_VIDEO = config.get('media_location', 'default_video')

@@ -15,11 +15,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 
+from Video_Streamer.settings import PATH_OF_VIDEOS, DEFAULT_VIDEO
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
-local_path_of_videos = '/home/saloni/Videos/'
+local_path_of_videos = PATH_OF_VIDEOS
 logger = logging.getLogger(__name__)
 
 
@@ -64,7 +65,7 @@ class RangeFileWrapper(object):
 def stream_video(request):
     path = request.GET['path']
     if path is None or path == '':
-        path = '/home/saloni/Videos/ReactNativeTutorial.mp4'
+        path = f'{PATH_OF_VIDEOS}{DEFAULT_VIDEO}'
     range_header = request.META.get('HTTP_RANGE', '').strip()
     range_match = range_re.match(range_header)
     size = os.path.getsize(path)
@@ -77,7 +78,8 @@ def stream_video(request):
         if last_byte >= size:
             last_byte = size - 1
         length = last_byte - first_byte + 1
-        resp = StreamingHttpResponse(RangeFileWrapper(open(path, 'rb'), offset=first_byte, length=length), status=206, content_type=content_type)
+        resp = StreamingHttpResponse(RangeFileWrapper(open(path, 'rb'), offset=first_byte, length=length), status=206,
+                                     content_type=content_type)
         resp['Content-Length'] = str(length)
         resp['Content-Range'] = 'bytes %s-%s/%s' % (first_byte, last_byte, size)
     else:
@@ -104,9 +106,8 @@ def list_movies(request):
     response = []
 
     for movie in movies:
-        pair = {'name': movie[movie.rfind('/')+1:movie.rfind('.')],
+        pair = {'name': movie[movie.rfind('/') + 1:movie.rfind('.')],
                 'path': movie}
         response.append(pair)
 
     return HttpResponse(json.dumps(response))
-
