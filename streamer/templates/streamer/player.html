@@ -2,34 +2,75 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
 {#    {% load static %}#}
 {##}
 {#    <link rel="stylesheet" type="text/css" href="{% static 'streamer/style.css' %}">#}
     <style>
-                * {
-          box-sizing: border-box;
-        }
-        .column {
-          float: left;
-          padding: 10px;
-            height: 100%;
-        }
 
-        .left, .right {
-          width: 25%;
-        }
+        .slider_wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 934px;
+    background-color: #d3d3d3;
+    border: 1px solid #fff;
+    margin: 0 auto;
+  }
+  .slider_video {
+    width:650px; height:366px;
+    margin: 10px 0 10px 10px;
+    padding: 0;
+    border: 10px solid #000;
+  }
+  .slider_menu_container {
+    margin: 0 auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 230px;
+    float: left;
+  }
+  .slider_menu {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .slider_menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .slider_menu li {
+    padding: 8px;
+    height: 24px;
+    border: 1px solid #fff;
+    margin-bottom: 7px;
+    overflow: hidden;
+    background-color: #207F3E;
+    box-shadow: 0 0 1px #303030;
+    cursor:pointer;
+    font-family: 'avenir-medium', Fallback, sans-serif;
+    font-weight: normal;
+    font-size: .9em;
+    color: #fff;
+    line-height: 24px;
+    vertical-align: middle;
+  }
 
-        .middle {
-          width: 50%;
-        }
+  .slider_menu li:hover {
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00299a0b', endColorstr='#9dbaa6', GradientType=1);
+    /* IE6-9 */
+    box-shadow: 0 0 1px #303030;
+    color: #303030;
+  }
 
-        /* Clear floats after the columns */
-        .row:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
     </style>
 </head>
 
@@ -37,21 +78,7 @@
 
 <header>
   <h1 align="center">VIDEO STREAMER</h1>
-</header>
-
-<div class="row">
-  <div id="myItemList" class="column left" style="background-color:#aaa;">
-  </div>
-  <div class="column middle" style="background-color:#bbb;">
-
-      <video width="600" id="video" controls>
-      <source src="video?path=" type="video/mp4">
-      Your browser does not support HTML video.
-      </video>
-
-  </div>
-  <div class="column right" style="background-color:#ccc;">
-      {% block content %}
+    {% block content %}
     {% if user.is_authenticated %}
       Hi {{ user.username }}!<br><br>
         {{ user.email }}
@@ -61,10 +88,17 @@
       <a href="{% url 'login' %}">Log In</a>
     {% endif %}
     {% endblock %}
-  </div>
-</div>
+</header>
 
-</div>
+        <div class="slider_wrapper">
+        <iframe class="slider_video" id="video" src= "video?path=" frameborder="5"></iframe>
+        <!-- start slider menu -->
+            <div class="slider_menu_container">
+                <div class="slider_menu" id="myItemList">
+                 <ul id="video_id"></ul>
+                </div>
+            </div>
+        </div>
 <script>
 
     function httpGet(theUrl)
@@ -91,7 +125,7 @@
                 if (movies[i].name == name)
                     path = movies[i].path;
             }
-            let vid = document.getElementById("video");
+            let vid = document.getElementsByTagName('iframe')[0];
             console.log(path);
             vid.src = "video?path="+path;
         };

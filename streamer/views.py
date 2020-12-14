@@ -15,6 +15,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 
+from django.views.decorators.clickjacking import xframe_options_exempt
+
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
 local_path_of_videos = '/home/vivek/Videos/HINDI/'
@@ -58,6 +60,7 @@ class RangeFileWrapper(object):
             return data
 
 
+@xframe_options_exempt
 def stream_video(request):
     path = request.GET['path']
     if path is None or path == '':
