@@ -65,7 +65,7 @@ class RangeFileWrapper(object):
 def stream_video(request):
     path = request.GET['path']
     if path is None or path == '':
-        path = f'{PATH_OF_VIDEOS}{DEFAULT_VIDEO}'
+        path = '/home/vivek/Videos/SANAM/Aap Ki Nazron Ne Samjha - Sanam.mp4'
     range_header = request.META.get('HTTP_RANGE', '').strip()
     range_match = range_re.match(range_header)
     size = os.path.getsize(path)
