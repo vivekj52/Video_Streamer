@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'streamer/registration/signup.css' %}"/>
     <title>Sign Up</title>
 </head>
 <body>
@@ -10,6 +13,7 @@
 
 {% block title %}Sign Up{% endblock %}
 
+<div class="form">
 {% block content %}
   <h2>Sign up</h2>
   <form method="post">
@@ -18,6 +22,6 @@
     <button type="submit">Sign Up</button>
   </form>
 {% endblock %}
-
+</div>
 </body>
 </html>

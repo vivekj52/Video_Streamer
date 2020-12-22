@@ -1,0 +1,13 @@
+body{
+    background-color: aqua;
+}
+
+.form{
+    display: block;
+    position: relative;
+    left: 20%;
+    border: 10px black;
+    background-color: azure;
+    width: fit-content;
+    padding: 5%;
+}
