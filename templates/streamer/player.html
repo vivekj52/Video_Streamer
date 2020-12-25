@@ -13,8 +13,9 @@
   <h1 align="center">VIDEO STREAMER</h1>
     {% block content %}
     {% if user.is_authenticated %}
-      Hi {{ user.username }}!<br><br>
-        {{ user.email }}
+      Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
+        {{ user.email }}<br>
+        Last login: {{ user.last_login }}<br>
       <p><a href="{% url 'logout' %}">Log Out</a></p>
     {% else %}
       <p>You are not logged in</p>
