@@ -17,6 +17,8 @@
         {{ user.email }}<br>
         Last login: {{ user.last_login }}<br>
       <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <br>
+        <a href="{% url 'upload' %}">Upload Page</a>
     {% else %}
       <p>You are not logged in</p>
       <a href="{% url 'login' %}">Log In</a>
