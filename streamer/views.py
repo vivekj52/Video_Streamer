@@ -14,6 +14,10 @@ from django.contrib.auth.decorators import login_required
 from Video_Streamer.settings import PATH_OF_VIDEOS, DEFAULT_VIDEO
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 
+from django import forms
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Video
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
 local_path_of_videos = PATH_OF_VIDEOS
@@ -101,3 +105,31 @@ def list_movies(request):
         response.append(pair)
 
     return HttpResponse(json.dumps(response))
+
+
+def upload_page(request):
+
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            video = form.save(commit=False)
+            if request.user.is_authenticated:
+                video.author = request.user.username
+            else:
+                video.author = 'Guest'
+
+            video.save()
+            title = form.cleaned_data.get('title')
+            messages.success(request, title + ' successfully uploaded!!')
+
+    else:
+        form = UploadForm()
+
+    context = {'form': form}
+    return render(request, 'streamer/upload.html', context)
+
+
+class UploadForm(forms.ModelForm):
+    class Meta:
+        model = Video
+        fields = ('title', 'description', 'file', )

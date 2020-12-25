@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['ec2-52-66-129-179.ap-south-1.compute.amazonaws.com',
 # Application definition
 
 INSTALLED_APPS = [
+    'streamer',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,3 +140,4 @@ LOGOUT_REDIRECT_URL = LOGIN_URL
 
 PATH_OF_VIDEOS = config.get('media_location', 'videos_folder')
 DEFAULT_VIDEO = config.get('media_location', 'default_video')
+MEDIA_ROOT = config.get('media_location', 'upload_path')
