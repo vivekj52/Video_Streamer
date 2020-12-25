@@ -16,10 +16,37 @@
 <div class="form">
 {% block content %}
   <h2>Sign up</h2>
-  <form method="post">
+  <form method="POST" action="">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+<table>
+<tr>
+    <td>{{ form.username.label }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.first_name.label }}</td>
+    <td>{{ form.first_name }}</td>
+</tr>
+<tr>
+    <td>{{ form.last_name.label }}</td>
+    <td>{{ form.last_name }}</td>
+</tr>
+<tr>
+    <td>{{ form.email.label }}</td>
+    <td>{{ form.email }}</td>
+</tr>
+<tr>
+    <td>{{ form.password1.label }}</td>
+    <td>{{ form.password1 }}</td>
+</tr>
+<tr>
+    <td>{{ form.password2.label }}</td>
+    <td>{{ form.password2 }}</td>
+</tr>
+
+</table>
+      {{form.errors}}
+    <input type="submit" name="SIGN UP">
   </form>
 {% endblock %}
 <p>Already have an account?<a href="{% url 'login' %}"> login</a></p>
