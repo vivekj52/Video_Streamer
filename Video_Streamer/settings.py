@@ -31,7 +31,8 @@ SECRET_KEY = config.get('main', 'SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config.getboolean('main', 'DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-52-66-129-179.ap-south-1.compute.amazonaws.com',
+                 'localhost']
 
 # Application definition
 
