@@ -12,7 +12,10 @@
 <body>
 
 <header>
+<div class="hleft">
   <h1 align="center">VIDEO STREAMER</h1>
+</div>
+<div class="hright">
     {% block content %}
     {% if user.is_authenticated %}
       Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
@@ -26,6 +29,7 @@
       <a href="{% url 'login' %}">Log In</a>
     {% endif %}
     {% endblock %}
+</div>
 </header>
 
         <div class="slider_wrapper">
@@ -33,12 +37,11 @@
         <!-- start slider menu -->
             <div class="slider_menu_container">
                 <div class="slider_menu" id="myItemList">
-                 <ul id="video_id"></ul>
+                 <ul class="menu_ul" id="video_id"></ul>
                 </div>
             </div>
         </div>
 
-<script src="{% static 'streamer/player.js' %}"></script>
 
 <footer>
     <div class="main-content">
@@ -104,5 +107,6 @@
 
 
   </footer>
+<script src="{% static 'streamer/player.js' %}"></script>
 </body>
 </html>
