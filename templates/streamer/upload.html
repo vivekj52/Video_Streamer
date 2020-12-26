@@ -8,7 +8,26 @@
     <title>Upload</title>
 </head>
 <body>
-{% block content %}
+
+<header>
+<div class="hleft">
+      <h1 align="center"><i>VIDEO STREAMER</i></h1>
+</div>
+<div class="hright">
+    {% block content %}
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
+        {{ user.email }}<br>
+        Last login: {{ user.last_login }}<br>
+      <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+
+</div>
+</header>
+
     {% if messages %}
 <ul class="messages">
     {% for message in messages %}

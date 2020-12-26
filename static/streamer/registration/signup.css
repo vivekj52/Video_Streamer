@@ -8,10 +8,16 @@ body
     background-color: rgb(235, 235, 235);
 }
 
+.hleft{
+    width: 100%;
+    color: #c41717;
+}
+
+
 footer
 {
     margin-left: 0;
-    position: fixed;
+    position: relative;
     bottom: 0px;
     width: 100%;
     background: #111;
@@ -26,7 +32,7 @@ footer
     border-style: solid;
     background-color: azure;
     width: fit-content;
-    padding: 5%;
+    padding: 2%;
 }
 
 .btn

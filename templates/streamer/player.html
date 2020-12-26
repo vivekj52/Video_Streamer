@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'streamer/player.css' %}"/>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 </head>
 
@@ -13,7 +12,7 @@
 
 <header>
 <div class="hleft">
-  <h1 align="center">VIDEO STREAMER</h1>
+      <h1 align="center"><i>VIDEO STREAMER</i></h1>
 </div>
 <div class="hright">
     {% block content %}
@@ -23,7 +22,7 @@
         Last login: {{ user.last_login }}<br>
       <p><a href="{% url 'logout' %}">Log Out</a></p>
         <br>
-        <a href="{% url 'upload' %}">Upload Page</a>
+        <a href="{% url 'upload' %}">Upload Videos</a>
     {% else %}
       <p>You are not logged in</p>
       <a href="{% url 'login' %}">Log In</a>
@@ -32,16 +31,11 @@
 </div>
 </header>
 
-        <div class="slider_wrapper">
-        <iframe class="slider_video" id="video" src= "video?path=" frameborder="5"></iframe>
-        <!-- start slider menu -->
-            <div class="slider_menu_container">
-                <div class="slider_menu" id="myItemList">
-                 <ul class="menu_ul" id="video_id"></ul>
-                </div>
-            </div>
-        </div>
+<div id="myItemList">
+    <ul class="menu_ul" id="video_id"></ul>
+</div>
 
+<iframe class="slider_video" id="video" src= "video?path=" frameborder="5"></iframe>
 
 <footer>
     <div class="main-content">

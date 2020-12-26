@@ -8,6 +8,17 @@ body
     background-color: rgb(235, 235, 235);
 }
 
+.hleft{
+    width: 80%;
+    color: #c41717;
+}
+
+.hright {
+    position: relative;
+    width: 20%;
+    float: right;
+}
+
 footer
 {
     margin-left: 0;
@@ -26,7 +37,9 @@ footer
     border-style: solid;
     background-color: azure;
     width: fit-content;
-    padding: 5%;
+    padding: 2%;
+    position: relative;
+    right: 5%;
 }
 
 .btn

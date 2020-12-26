@@ -5,18 +5,19 @@ body {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     background-color: rgb(235, 235, 235);
+    position: relative;
 }
 
 ul {
+    position: relative;
     list-style-type: none;
     text-align: center;
     margin: 0;
     padding: 0;
     width: fit-content;
     left: 0%;
-    right: 5%;
-    position: absolute;
-    height: 50%;
+    bottom: 5%;
+    max-height: 50%;
     overflow: auto;
 }
 
@@ -31,36 +32,37 @@ li {
 
 
 li:hover {
-    background-color: #c0c0d8;
+    background-color: #c41717;
     color: white;
 }
 
 .slider_video {
     position: absolute;
     left: 20%;
-    height: 50%;
-    width: 50%;
+    top: 2%;
+    height: 500px;
+    width: 55%;
+    margin: 10px;
 }
 
-.hleft {
-    position: relative;
-    left: 5%;
-    width: 30%;
+.hleft{
+    width: 80%;
+    color: #c41717;
 }
 
 .hright {
-    position: absolute;
-    right: 0%;
-    top: 5%;
+    position: relative;
     width: 20%;
+    float: right;
 }
 
 footer {
     margin-left: 0;
-    position: absolute;
-    bottom: 0px;
+    position: relative;
+    bottom: 0%;
     width: 100%;
     background: #111;
+    float: bottom;
 }
 
 .form {

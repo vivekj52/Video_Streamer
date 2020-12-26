@@ -8,6 +8,11 @@ body
     background-color: rgb(235, 235, 235);
 }
 
+.hleft{
+    width: 100%;
+    color: #c41717;
+}
+
 footer
 {
     margin-left: 0;
