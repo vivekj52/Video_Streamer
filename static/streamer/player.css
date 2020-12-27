@@ -14,11 +14,11 @@ ul {
     text-align: center;
     margin: 0;
     padding: 0;
-    width: fit-content;
+    width: 20%;
     left: 0%;
     bottom: 5%;
-    max-height: 50%;
-    overflow: auto;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 li {
@@ -39,14 +39,14 @@ li:hover {
 .slider_video {
     position: absolute;
     left: 20%;
-    top: 2%;
+    top: 12%;
     height: 500px;
-    width: 55%;
+    width: 56%;
     margin: 10px;
 }
 
 .hleft{
-    width: 80%;
+    text-align: center;
     color: #c41717;
 }
 
@@ -62,7 +62,7 @@ footer {
     bottom: 0%;
     width: 100%;
     background: #111;
-    float: bottom;
+    top: 100px;
 }
 
 .form {

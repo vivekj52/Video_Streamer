@@ -11,13 +11,14 @@ from django.http import HttpResponse
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 
-from Video_Streamer.settings import PATH_OF_VIDEOS, DEFAULT_VIDEO
+from Video_Streamer.settings import PATH_OF_VIDEOS, DEFAULT_VIDEO, MEDIA_ROOT
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 from django import forms
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Video
+from django.core import serializers
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
 local_path_of_videos = PATH_OF_VIDEOS
@@ -107,6 +108,17 @@ def list_movies(request):
     return HttpResponse(json.dumps(response))
 
 
+def list_videos(request):
+    videos = Video.objects.all()
+    for video in videos:
+        video.file = os.path.join(MEDIA_ROOT, str(video.file))
+    return HttpResponse(
+        serializers.serialize("json", videos),
+        content_type="application/json"
+    )
+
+
+@login_required()
 def upload_page(request):
 
     if request.method == 'POST':

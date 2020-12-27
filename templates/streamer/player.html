@@ -12,31 +12,32 @@
 
 <header>
 <div class="hleft">
-      <h1 align="center"><i>VIDEO STREAMER</i></h1>
-</div>
-<div class="hright">
-    {% block content %}
-    {% if user.is_authenticated %}
-      Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
-        {{ user.email }}<br>
-        Last login: {{ user.last_login }}<br>
-      <p><a href="{% url 'logout' %}">Log Out</a></p>
-        <br>
-        <a href="{% url 'upload' %}">Upload Videos</a>
-    {% else %}
-      <p>You are not logged in</p>
-      <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
-    {% endblock %}
+      <h1 class="heading">VIDEO STREAMER</h1>
 </div>
 </header>
+<div class="video-parent">
+    <div class="hright">
+        {% block content %}
+        {% if user.is_authenticated %}
+          <p>Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
+              {{ user.email }}<br></p>
+            Last login: {{ user.last_login }}<br>
+          <p><a href="{% url 'logout' %}">Log Out</a></p>
+            <br>
+            <a href="{% url 'upload' %}">Upload Videos</a>
+        {% else %}
+          <p>You are not logged in</p>
+          <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        {% endblock %}
+    </div>
+    <div id="myItemList">
+{#        <ul class="menu_ul"></ul>#}
+    </div>
 
-<div id="myItemList">
-    <ul class="menu_ul" id="video_id"></ul>
+    <iframe class="slider_video" id="video" src= "video?path=" frameborder="5"></iframe>
+
 </div>
-
-<iframe class="slider_video" id="video" src= "video?path=" frameborder="5"></iframe>
-
 <footer>
     <div class="main-content">
       <div class="left box">
