@@ -22,9 +22,9 @@
           <p>Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
               {{ user.email }}<br></p>
             Last login: {{ user.last_login }}<br>
-          <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <p><a class="btn-two" style="vertical-align:middle" href="{% url 'logout' %}"><span>Log Out</span></a></p>
             <br>
-            <a href="{% url 'upload' %}">Upload Videos</a>
+        <a class="btn-three" style="vertical-align:middle" href="{% url 'upload' %}"><span>Upload Videos</span></a>
         {% else %}
           <p>You are not logged in</p>
           <a href="{% url 'login' %}">Log In</a>

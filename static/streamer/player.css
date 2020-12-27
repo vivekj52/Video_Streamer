@@ -65,6 +65,85 @@ footer {
     top: 100px;
 }
 
+
+
+.btn-three {
+  display: inline-block;
+  border-radius: 4px;
+  border: 2px solid black;
+  color: black;
+  text-align: center;
+  font-weight: 550;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.btn-two {
+  display: inline-block;
+  border-radius: 4px;
+  border: 2px solid black;
+  color: black;
+  text-align: center;
+  font-weight: 550;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn-two span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-two span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-two:hover span {
+  padding-left: 25px;
+}
+
+.btn-two:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.btn-three span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-three span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-three:hover span {
+  padding-right: 25px;
+}
+
+.btn-three:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 .form {
     margin-top: 50px;
     margin-left: auto;
