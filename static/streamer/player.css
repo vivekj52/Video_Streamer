@@ -94,6 +94,13 @@ footer {
   margin: 5px;
 }
 
+.btn-two:hover{
+    background-color: #c41717;
+}
+.btn-three:hover{
+    background-color: #c41717;
+}
+
 .btn-two span {
   cursor: pointer;
   display: inline-block;
