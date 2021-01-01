@@ -5,9 +5,6 @@ function httpGet(theUrl) {
     return xmlHttp.responseText;
 }
 
-let movies = httpGet('movies');
-movies = JSON.parse(movies);
-//console.log(movies);
 let ul = document.createElement('ul');
 
 let videos = httpGet('videos');
@@ -16,20 +13,35 @@ console.log(videos);
 
 document.getElementById('myItemList').appendChild(ul);
 
-movies.forEach(function (movie) {
+videos.forEach(function (video) {
     let li = document.createElement('li');
     li.onclick = function () {
-        let name = li.innerText;
-        let path = "";
-        for (let i = 0; i < movies.length; i++) {
-            if (movies[i].name == name)
-                path = movies[i].path;
+        let title = li.innerText;
+
+        for (let i = 0; i < videos.length; i++) {
+            if (videos[i].pk == title) {
+                let path = videos[i].fields.file;
+                let description = videos[i].fields.description;
+                let author = videos[i].fields.author;
+                let upload_time = videos[i].fields.time;
+
+                let player = document.getElementById('player');
+                let title_p = document.getElementById('title');
+                let description_p = document.getElementById('description');
+                let author_p = document.getElementById('author');
+                let time_p = document.getElementById('time');
+
+                player.src = "video?path=" + path;
+                title_p.innerText = title;
+                description_p.innerText = description;
+                author_p.innerText = author;
+                time_p.innerText = upload_time;
+                break;
+            }
         }
-        let vid = document.getElementsByTagName('iframe')[0];
-        console.log(path);
-        vid.src = "video?path=" + path;
+
     };
     ul.appendChild(li);
 
-    li.innerHTML += movie.name;
+    li.innerHTML += video.pk;
 });

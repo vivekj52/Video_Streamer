@@ -92,20 +92,20 @@ def player(request):
     return HttpResponse(template.render(context, request))
 
 
-def list_movies(request):
-
-    mp4 = glob.glob(os.path.join(local_path_of_videos, '**/*.mp4'))
-    mkv = glob.glob(os.path.join(local_path_of_videos, '**/*.mkv'))
-
-    movies = mp4 + mkv
-    response = []
-
-    for movie in movies:
-        pair = {'name': movie[movie.rfind('/') + 1:movie.rfind('.')],
-                'path': movie}
-        response.append(pair)
-
-    return HttpResponse(json.dumps(response))
+# def list_movies(request):
+#
+#     mp4 = glob.glob(os.path.join(local_path_of_videos, '**/*.mp4'))
+#     mkv = glob.glob(os.path.join(local_path_of_videos, '**/*.mkv'))
+#
+#     movies = mp4 + mkv
+#     response = []
+#
+#     for movie in movies:
+#         pair = {'name': movie[movie.rfind('/') + 1:movie.rfind('.')],
+#                 'path': movie}
+#         response.append(pair)
+#
+#     return HttpResponse(json.dumps(response))
 
 
 def list_videos(request):

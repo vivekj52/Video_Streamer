@@ -3,25 +3,32 @@
     <div class="video-parent">
         <div class="hright">
 
-                {% if user.is_authenticated %}
-                    <p>Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
-                        {{ user.email }}<br></p>
-                    Last login: {{ user.last_login }}<br>
-                    <p><a class="btn-two" style="vertical-align:middle"
-                          href="{% url 'logout' %}"><span>Log Out</span></a></p>
-                    <br>
-                    <a class="btn-three" style="vertical-align:middle"
-                       href="{% url 'upload' %}"><span>Upload Videos</span></a>
-                {% else %}
-                    <p>You are not logged in</p>
-                    <a href="{% url 'login' %}">Log In</a>
-                {% endif %}
+            {% if user.is_authenticated %}
+                <p>Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
+                    {{ user.email }}<br></p>
+                Last login: {{ user.last_login }}<br>
+                <p><a class="btn-two" style="vertical-align:middle"
+                      href="{% url 'logout' %}"><span>Log Out</span></a></p>
+                <br>
+                <a class="btn-three" style="vertical-align:middle"
+                   href="{% url 'upload' %}"><span>Upload Videos</span></a>
+            {% else %}
+                <p>You are not logged in</p>
+                <a href="{% url 'login' %}">Log In</a>
+            {% endif %}
 
         </div>
         <div class="list-wrapper" id="myItemList">
         </div>
 
-        <iframe class="slider_video" id="video" src="video?path=" frameborder="5"></iframe>
+        <div class="player-wrapper">
+            <iframe class="slider_video" id="player" src="video?path=" frameborder="5"></iframe>
+            <br>
+            Title: <p id="title">Hello!!</p>
+            Description: <p id="description">This is default video</p>
+            Uploaded By <p id="author">admin</p>
+            at <p id="time">some time</p>
+        </div>
 
     </div>
     {% load static %}
