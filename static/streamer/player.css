@@ -8,15 +8,21 @@ body {
     position: relative;
 }
 
+.list-wrapper {
+    position: relative;
+    width: 20%;
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    float: left;
+}
+
 ul {
     position: relative;
     list-style-type: none;
     text-align: center;
     margin: 0;
     padding: 0;
-    width: 20%;
-    left: 0%;
-    bottom: 5%;
     max-height: 500px;
     overflow-y: scroll;
 }
@@ -37,15 +43,18 @@ li:hover {
 }
 
 .slider_video {
-    position: absolute;
-    left: 20%;
-    top: 12%;
+    position: relative;
     height: 500px;
     width: 56%;
-    margin: 10px;
 }
 
-.hleft{
+.video-parent {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.hleft {
     text-align: center;
     color: #c41717;
 }
@@ -66,89 +75,90 @@ footer {
 }
 
 
-
 .btn-three {
-  display: inline-block;
-  border-radius: 4px;
-  border: 2px solid black;
-  color: black;
-  text-align: center;
-  font-weight: 550;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-.btn-two {
-  display: inline-block;
-  border-radius: 4px;
-  border: 2px solid black;
-  color: black;
-  text-align: center;
-  font-weight: 550;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
+    display: inline-block;
+    border-radius: 4px;
+    border: 2px solid black;
+    color: black;
+    text-align: center;
+    font-weight: 550;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
 }
 
-.btn-two:hover{
+.btn-two {
+    display: inline-block;
+    border-radius: 4px;
+    border: 2px solid black;
+    color: black;
+    text-align: center;
+    font-weight: 550;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-two:hover {
     background-color: #c41717;
 }
-.btn-three:hover{
+
+.btn-three:hover {
     background-color: #c41717;
 }
 
 .btn-two span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .btn-two span:after {
-  content: '\00ab';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: -20px;
-  transition: 0.5s;
+    content: '\00ab';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
 }
 
 .btn-two:hover span {
-  padding-left: 25px;
+    padding-left: 25px;
 }
 
 .btn-two:hover span:after {
-  opacity: 1;
-  left: 0;
+    opacity: 1;
+    left: 0;
 }
 
 .btn-three span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .btn-three span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
 }
 
 .btn-three:hover span {
-  padding-right: 25px;
+    padding-right: 25px;
 }
 
 .btn-three:hover span:after {
-  opacity: 1;
-  right: 0;
+    opacity: 1;
+    right: 0;
 }
 
 .form {
