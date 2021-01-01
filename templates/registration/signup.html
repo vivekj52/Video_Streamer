@@ -1,124 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'streamer/registration/signup.css' %}"/>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-    <title>Sign Up</title>
-</head>
-<body>
-<header>
-<div class="hleft">
-      <h1 align="center"><i>VIDEO STREAMER</i></h1>
-</div>
-</header>
-
-{#{% extends 'base.html' %}#}
+{% extends 'base.html' %}
 
 <div class="form">
-{% block content %}
-  <h2>Sign up</h2>
-  <form method="POST" action="">
-    {% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.first_name.label }}</td>
-    <td>{{ form.first_name }}</td>
-</tr>
-<tr>
-    <td>{{ form.last_name.label }}</td>
-    <td>{{ form.last_name }}</td>
-</tr>
-<tr>
-    <td>{{ form.email.label }}</td>
-    <td>{{ form.email }}</td>
-</tr>
-<tr>
-    <td>{{ form.password1.label }}</td>
-    <td>{{ form.password1 }}</td>
-</tr>
-<tr>
-    <td>{{ form.password2.label }}</td>
-    <td>{{ form.password2 }}</td>
-</tr>
+    {% block content %}
+        <form class="form" method="POST" action="">
+            <h2>SIGN UP</h2>
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.first_name.label }}</td>
+                    <td>{{ form.first_name }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.last_name.label }}</td>
+                    <td>{{ form.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.email.label }}</td>
+                    <td>{{ form.email }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password1.label }}</td>
+                    <td>{{ form.password1 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password2.label }}</td>
+                    <td>{{ form.password2 }}</td>
+                </tr>
 
-</table>
-      {{form.errors}}
-    <input class="btn" type="submit" name="SIGN UP">
-  </form>
-{% endblock %}
-<p>Already have an account?<a href="{% url 'login' %}"> login</a></p>
-</div>
-<footer>
-    <div class="main-content">
-      <div class="left box">
-
-        <h2>About Us</h2>
-        <div class="content">
-          <p>This is a video streaming plateform where you can watch videos as per your choice. Browse free videos and
-            take subscription for premium content. Connect to us on our social media handles to get more updates !
-          </p>
-
-          <div class="social">
-            <a href="#"><span class="fab fa-facebook-f"></span></a>
-            <a href="#"><span class="fab fa-twitter"></span></a>
-            <a href="#"><span class="fab fa-instagram"></span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="center box">
-
-        <h2>Address</h2>
-        <div class="content">
-
-          <div class="place">
-            <span class="fas fa-map-marker-alt"></span>
-            <span class="text">Manglore, India</span>
-          </div>
-
-          <div class="phone">
-            <span class="fas fa-phone-alt"></span>
-            <span class="text">+91-8888888888</span>
-          </div>
-
-          <div class="email">
-            <span class="fas fa-envelope"></span>
-            <span class="text">student@nitk.edu.in</span>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="right box">
-
-        <h2>Developed By</h2>
-        <div class="content">
-
-          <div class="student-1">
-            <span class="fas fa-user"></span>
-            <span class="text">Vivek Jain</span>
-            <p class="student-details">CSIS, NITK</p>
-          </div>
-
-          <div class="student-2">
-            <span class="fas fa-user"></span>
-            <span class="text">Shivam Pandey</span>
-            <p class="student-details">CSIS, NITK</p>
-          </div>
-
-        </div>
-      </div>
+            </table>
+            {{ form.errors }}
+            <input class="btn" type="submit" name="SIGN UP">
+            <p>Already have an account?<a href="{% url 'login' %}"> login</a></p>
+        </form>
     </div>
+{% endblock %}
 
-
-  </footer>
-</body>
-</html>

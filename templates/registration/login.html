@@ -1,118 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'streamer/registration/login.css' %}"/>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Sign Up</title>
-</head>
-<body>
-<header>
-<div class="hleft">
-      <h1 align="center"><i>VIDEO STREAMER</i></h1>
-</div>
-</header>
+{% extends 'base.html' %}
 {% block content %}
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
-{% endif %}
 
-<form class="form" method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+        {% else %}
+            <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
 
-<input class="btn" type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
+    <form class="form" method="post" action="{% url 'login' %}">
+        <h2>LOGIN</h2>
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
 
-    <p>Dont have an account?<a href="{% url 'signup' %}"> Signup</a></p>
+        <input class="btn" type="submit" value="login">
+        <input type="hidden" name="next" value="{{ next }}">
 
-</form>
+        <p>Dont have an account?<a href="{% url 'signup' %}"> Signup</a></p>
+
+    </form>
 
 
 {% endblock %}
-<footer>
-    <div class="main-content">
-      <div class="left box">
-
-        <h2>About Us</h2>
-        <div class="content">
-          <p>This is a video streaming plateform where you can watch videos as per your choice. Browse free videos and
-            take subscription for premium content. Connect to us on our social media handles to get more updates !
-          </p>
-
-          <div class="social">
-            <a href="#"><span class="fab fa-facebook-f"></span></a>
-            <a href="#"><span class="fab fa-twitter"></span></a>
-            <a href="#"><span class="fab fa-instagram"></span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="center box">
-
-        <h2>Address</h2>
-        <div class="content">
-
-          <div class="place">
-            <span class="fas fa-map-marker-alt"></span>
-            <span class="text">Manglore, India</span>
-          </div>
-
-          <div class="phone">
-            <span class="fas fa-phone-alt"></span>
-            <span class="text">+91-8888888888</span>
-          </div>
-
-          <div class="email">
-            <span class="fas fa-envelope"></span>
-            <span class="text">student@nitk.edu.in</span>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="right box">
-
-        <h2>Developed By</h2>
-        <div class="content">
-
-          <div class="student-1">
-            <span class="fas fa-user"></span>
-            <span class="text">Vivek Jain</span>
-            <p class="student-details">CSIS, NITK</p>
-          </div>
-
-          <div class="student-2">
-            <span class="fas fa-user"></span>
-            <span class="text">Shivam Pandey</span>
-            <p class="student-details">CSIS, NITK</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-  </footer>
-</body>
-</html>

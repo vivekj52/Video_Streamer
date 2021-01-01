@@ -1,107 +1,29 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="video-parent">
+        <div class="hright">
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+                {% if user.is_authenticated %}
+                    <p>Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
+                        {{ user.email }}<br></p>
+                    Last login: {{ user.last_login }}<br>
+                    <p><a class="btn-two" style="vertical-align:middle"
+                          href="{% url 'logout' %}"><span>Log Out</span></a></p>
+                    <br>
+                    <a class="btn-three" style="vertical-align:middle"
+                       href="{% url 'upload' %}"><span>Upload Videos</span></a>
+                {% else %}
+                    <p>You are not logged in</p>
+                    <a href="{% url 'login' %}">Log In</a>
+                {% endif %}
+
+        </div>
+        <div id="myItemList">
+        </div>
+
+        <iframe class="slider_video" id="video" src="video?path=" frameborder="5"></iframe>
+
+    </div>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'streamer/player.css' %}"/>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</head>
-
-<body>
-
-<header>
-<div class="hleft">
-      <h1 class="heading">VIDEO STREAMER</h1>
-</div>
-</header>
-<div class="video-parent">
-    <div class="hright">
-        {% block content %}
-        {% if user.is_authenticated %}
-          <p>Hi {{ user.username }}!({{ user.first_name }} {{ user.last_name }})<br>
-              {{ user.email }}<br></p>
-            Last login: {{ user.last_login }}<br>
-        <p><a class="btn-two" style="vertical-align:middle" href="{% url 'logout' %}"><span>Log Out</span></a></p>
-            <br>
-        <a class="btn-three" style="vertical-align:middle" href="{% url 'upload' %}"><span>Upload Videos</span></a>
-        {% else %}
-          <p>You are not logged in</p>
-          <a href="{% url 'login' %}">Log In</a>
-        {% endif %}
-        {% endblock %}
-    </div>
-    <div id="myItemList">
-{#        <ul class="menu_ul"></ul>#}
-    </div>
-
-    <iframe class="slider_video" id="video" src= "video?path=" frameborder="5"></iframe>
-
-</div>
-<footer>
-    <div class="main-content">
-      <div class="left box">
-
-        <h2>About Us</h2>
-        <div class="content">
-          <p>This is a video streaming plateform where you can watch videos as per your choice. Browse free videos and
-            take subscription for premium content. Connect to us on our social media handles to get more updates !
-          </p>
-
-          <div class="social">
-            <a href="#"><span class="fab fa-facebook-f"></span></a>
-            <a href="#"><span class="fab fa-twitter"></span></a>
-            <a href="#"><span class="fab fa-instagram"></span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="center box">
-
-        <h2>Address</h2>
-        <div class="content">
-
-          <div class="place">
-            <span class="fas fa-map-marker-alt"></span>
-            <span class="text">Manglore, India</span>
-          </div>
-
-          <div class="phone">
-            <span class="fas fa-phone-alt"></span>
-            <span class="text">+91-8888888888</span>
-          </div>
-
-          <div class="email">
-            <span class="fas fa-envelope"></span>
-            <span class="text">student@nitk.edu.in</span>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="right box">
-
-        <h2>Developed By</h2>
-        <div class="content">
-
-          <div class="student-1">
-            <span class="fas fa-user"></span>
-            <span class="text">Vivek Jain</span>
-            <p class="student-details">CSIS, NITK</p>
-          </div>
-
-          <div class="student-2">
-            <span class="fas fa-user"></span>
-            <span class="text">Shivam Pandey</span>
-            <p class="student-details">CSIS, NITK</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-  </footer>
-<script src="{% static 'streamer/player.js' %}"></script>
-</body>
-</html>
+    <script src="{% static 'streamer/player.js' %}"></script>
+{% endblock %}

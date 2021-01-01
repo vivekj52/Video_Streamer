@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'streamer/player.css' %}"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Streamer</title>
+</head>
+<body>
+
+<header>
+<div class="hleft">
+      <h1 class="heading">VIDEO STREAMER</h1>
+</div>
+</header>
+
+{% block content %}
+
+{% endblock %}
+
+<footer>
+    <div class="main-content">
+      <div class="left box">
+
+        <h2>About Us</h2>
+        <div class="content">
+          <p>This is a video streaming plateform where you can watch videos as per your choice. Browse free videos and
+            take subscription for premium content. Connect to us on our social media handles to get more updates !
+          </p>
+
+          <div class="social">
+            <a href="#"><span class="fab fa-facebook-f"></span></a>
+            <a href="#"><span class="fab fa-twitter"></span></a>
+            <a href="#"><span class="fab fa-instagram"></span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="center box">
+
+        <h2>Address</h2>
+        <div class="content">
+
+          <div class="place">
+            <span class="fas fa-map-marker-alt"></span>
+            <span class="text">Manglore, India</span>
+          </div>
+
+          <div class="phone">
+            <span class="fas fa-phone-alt"></span>
+            <span class="text">+91-8888888888</span>
+          </div>
+
+          <div class="email">
+            <span class="fas fa-envelope"></span>
+            <span class="text">student@nitk.edu.in</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="right box">
+
+        <h2>Developed By</h2>
+        <div class="content">
+
+          <div class="student-1">
+            <span class="fas fa-user"></span>
+            <span class="text">Vivek Jain</span>
+            <p class="student-details">CSIS, NITK</p>
+          </div>
+
+          <div class="student-2">
+            <span class="fas fa-user"></span>
+            <span class="text">Shivam Pandey</span>
+            <p class="student-details">CSIS, NITK</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </footer>
+
+</body>
+</html>
