@@ -9,12 +9,13 @@ import logging
 from django.http.response import StreamingHttpResponse
 from django.http import HttpResponse
 from django.template import loader
-from django.contrib.auth.decorators import login_required
 
 from Video_Streamer.settings import PATH_OF_VIDEOS, DEFAULT_VIDEO, MEDIA_ROOT
 from django.views.decorators.clickjacking import xframe_options_sameorigin
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import login_required
 
-from django import forms
+from .forms import UploadForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Video
@@ -57,6 +58,8 @@ class RangeFileWrapper(object):
 
 
 @xframe_options_sameorigin
+@login_required()
+@permission_required('streamer.view_video', raise_exception=True)
 def stream_video(request):
     path = request.GET['path']
     if path is None or path == '':
@@ -107,7 +110,7 @@ def player(request):
 #
 #     return HttpResponse(json.dumps(response))
 
-
+@login_required()
 def list_videos(request):
     videos = Video.objects.all()
     for video in videos:
@@ -119,6 +122,7 @@ def list_videos(request):
 
 
 @login_required()
+@permission_required('streamer.add_video', raise_exception=True)
 def upload_page(request):
 
     if request.method == 'POST':
@@ -140,8 +144,3 @@ def upload_page(request):
     context = {'form': form}
     return render(request, 'streamer/upload.html', context)
 
-
-class UploadForm(forms.ModelForm):
-    class Meta:
-        model = Video
-        fields = ('title', 'description', 'file', )
