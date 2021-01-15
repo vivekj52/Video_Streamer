@@ -138,6 +138,6 @@ LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/streamer/play'
 LOGOUT_REDIRECT_URL = LOGIN_URL
 
-PATH_OF_VIDEOS = config.get('media_location', 'videos_folder')
+#PATH_OF_VIDEOS = config.get('media_location', 'videos_folder')
 DEFAULT_VIDEO = config.get('media_location', 'default_video')
 MEDIA_ROOT = config.get('media_location', 'upload_path')

@@ -10,7 +10,7 @@ from django.http.response import StreamingHttpResponse
 from django.http import HttpResponse
 from django.template import loader
 
-from Video_Streamer.settings import PATH_OF_VIDEOS, DEFAULT_VIDEO, MEDIA_ROOT
+from Video_Streamer.settings import DEFAULT_VIDEO, MEDIA_ROOT
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
@@ -22,7 +22,7 @@ from .models import Video
 from django.core import serializers
 
 range_re = re.compile(r'bytes\s*=\s*(\d+)\s*-\s*(\d*)', re.I)
-local_path_of_videos = PATH_OF_VIDEOS
+#local_path_of_videos = PATH_OF_VIDEOS
 logger = logging.getLogger(__name__)
 
 
