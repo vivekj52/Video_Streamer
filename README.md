@@ -1,5 +1,10 @@
 # Streamer
 
+This application is deployed on AWS EC2 instance.
+
+For demo visit: http://ec2-52-66-129-179.ap-south-1.compute.amazonaws.com/auth/signup/
+
+
 ## Installation Guide
 
 1. Install python3
