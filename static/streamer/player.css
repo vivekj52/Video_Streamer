@@ -4,9 +4,12 @@ body {
     color: #0e0707;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(255, 255, 255);
     position: relative;
 }
+
+
+/******************************************** PLAYER ********************************************/
 
 .list-wrapper {
     position: relative;
@@ -54,9 +57,30 @@ li:hover {
     display: block;
 }
 
+
+/******************************************** HEADER ********************************************/
+
 .hleft {
     text-align: center;
-    color: #c41717;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0px 10px 5px grey;
+}
+
+.heading
+{
+    font-size: 3.4rem;
+    font-family:"Times New Roman";
+    padding-bottom: 2rem;
+    letter-spacing: 7px;
+    margin-top: 1rem;
+    font-weight: 950;
+    color: rgb(236, 236, 236);
+    text-shadow: -3px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -3px -1px 0 #000;
+
 }
 
 .hright {
@@ -65,15 +89,43 @@ li:hover {
     float: right;
 }
 
-footer {
-    margin-left: 0;
-    position: relative;
-    bottom: 0%;
-    width: 100%;
-    background: #111;
-    top: 100px;
+
+/******************************************** FORM ********************************************/
+
+.form {
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    display: block;
+    border-radius: 10px;
+    background-color: azure;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
+    width: fit-content;
+    padding: 5%;
 }
 
+.btn {
+    margin-top: 10px;
+}
+
+.btn {
+    color: white;
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #c41717;
+    font-size: 1.0625rem;
+    font-weight: 550;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: rgb(99, 12, 12);
+}
 
 .btn-three {
     display: inline-block;
@@ -161,37 +213,23 @@ footer {
     right: 0;
 }
 
-.form {
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-style: solid;
-    background-color: azure;
-    width: fit-content;
-    padding: 5%;
+.link
+{
+    text-decoration: none;
+    color: blue;
+    font-weight: 600;
 }
 
-.btn {
-    margin-top: 10px;
-}
 
-.btn {
-    color: white;
-    height: 40px;
+/******************************************** FOOTER ********************************************/
+
+footer {
+    margin-left: 0;
+    position: relative;
+    bottom: 0%;
     width: 100%;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    background: #c41717;
-    font-size: 1.0625rem;
-    font-weight: 550;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.btn:hover {
-    background: rgb(99, 12, 12);
+    background: #111;
+    top: 100px;
 }
 
 .main-content {
